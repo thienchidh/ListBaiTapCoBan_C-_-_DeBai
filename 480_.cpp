@@ -2,7 +2,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main() {
+struct DaThuc {
+    float a[100];
+    int n;
+};
+typedef struct DaThuc DATHUC;
 
+void NhapDaThuc(DATHUC &);
+void XuatDaThuc(DATHUC);
+
+void NhapDaThuc(DATHUC &dt) {
+    scanf("%d", &dt.n);
+    for(int i = dt.n; i >= 0; i--) {
+        float temp;
+        scanf("%f", &temp);
+        dt.a[i] = temp;
+    }
+}
+
+void XuatDaThuc(DATHUC dt) {
+    for(int i = dt.n; i > 0; i--) {
+        printf("%.3fx^%d + ", dt.a[i], i);
+    }
+    printf("%.3fx^%d", dt.a[0], 0);
+}
+
+int main() {
+    DATHUC dt;
+    NhapDaThuc(dt);
+    XuatDaThuc(dt);
     return 0;
 }
